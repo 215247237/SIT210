@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Linda's Lights 💡</title>
+</head>
+
+<body>
+
+    <h1>Toggle lights 💡</h1>
+    <p>Switch the following lights on and off:</p>
+
+    <form>
+        <input type="checkbox" id="ledBlue" onchange="toggleLight('livingroom')">
+        <label for="ledBlue">Living room (blue)</label><br>
+
+        <input type="checkbox" id="ledYellow" onchange="toggleLight('bathroom')">
+        <label for="ledYellow">Bathroom (yellow)</label><br>
+
+        <input type="checkbox" id="ledRed" onchange="toggleLight('closet')">
+        <label for="ledRed">Closet (red)</label>
+    </form>
+
+    <script>
+        function toggleLight(room) {
+            fetch(`http://192.168.1.115/?room=${room}`);   // Sends request to local IP
+        }
+    </script>
+
+</body>
+
+</html>
